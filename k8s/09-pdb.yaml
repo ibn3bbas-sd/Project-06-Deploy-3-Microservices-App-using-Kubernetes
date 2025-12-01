@@ -1,0 +1,35 @@
+# API Service PDB
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: api-service-pdb
+  namespace: api-service
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: api-service
+---
+# Auth Service PDB
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: auth-service-pdb
+  namespace: auth-service
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: auth-service
+---
+# Image Service PDB
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: image-service-pdb
+  namespace: image-service
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: image-service

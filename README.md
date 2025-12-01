@@ -751,8 +751,8 @@ This project is licensed under the MIT License - see LICENSE file for details.
 ## 📞 Support
 
 - **Issues:** GitHub Issues
-- **Email:** support@example.com
-- **Slack:** #kubernetes-support
+- **Email:** ibn3bbas.mo7ammed.elhadi@gmail.com
+- **Phone:** +966534900507
 
 ---
 
@@ -777,5 +777,5 @@ This project is licensed under the MIT License - see LICENSE file for details.
 ---
 
 **Project Version:** 1.0.0  
-**Last Updated:** 2024-12-01  
-**Maintainer:** Your Team Name
+**Last Updated:** 2025-12-01  
+**Maintainer:** Rasid Infrastructure

@@ -1,0 +1,42 @@
+# API Service Resource Quota
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: api-service-quota
+  namespace: api-service
+spec:
+  hard:
+    requests.cpu: "4"
+    requests.memory: 8Gi
+    limits.cpu: "8"
+    limits.memory: 16Gi
+    persistentvolumeclaims: "5"
+    pods: "20"
+---
+# Auth Service Resource Quota
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: auth-service-quota
+  namespace: auth-service
+spec:
+  hard:
+    requests.cpu: "2"
+    requests.memory: 4Gi
+    limits.cpu: "4"
+    limits.memory: 8Gi
+    pods: "15"
+---
+# Image Service Resource Quota
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: image-service-quota
+  namespace: image-service
+spec:
+  hard:
+    requests.cpu: "6"
+    requests.memory: 12Gi
+    limits.cpu: "12"
+    limits.memory: 24Gi
+    pods: "25"

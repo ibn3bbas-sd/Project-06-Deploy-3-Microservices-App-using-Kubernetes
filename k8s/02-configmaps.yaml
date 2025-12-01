@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-config
+  namespace: api-service
+data:
+  PORT: "3000"
+  LOG_LEVEL: "info"
+  AUTH_SERVICE_HOST: "auth-service.auth-service.svc.cluster.local"
+  AUTH_SERVICE_PORT: "8080"
+  IMAGE_SERVICE_HOST: "image-service.image-service.svc.cluster.local"
+  IMAGE_SERVICE_PORT: "8000"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-config
+  namespace: auth-service
+data:
+  PORT: "8080"
+  LOG_LEVEL: "info"
+  TOKEN_EXPIRY: "24h"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: image-config
+  namespace: image-service
+data:
+  PORT: "8000"
+  LOG_LEVEL: "info"
+  MAX_FILE_SIZE: "10485760"  # 10MB

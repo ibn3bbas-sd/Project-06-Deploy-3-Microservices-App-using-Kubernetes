@@ -1,0 +1,75 @@
+{
+  "dashboard": {
+    "title": "Microservices Overview",
+    "tags": ["microservices", "kubernetes"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "title": "API Service - Request Rate",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+        "targets": [
+          {
+            "expr": "rate(http_requests_total{namespace=\"api-service\"}[5m])",
+            "legendFormat": "{{method}} - {{route}}"
+          }
+        ],
+        "type": "graph"
+      },
+      {
+        "title": "API Service - Error Rate",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+        "targets": [
+          {
+            "expr": "rate(http_requests_total{namespace=\"api-service\",status_code=~\"5..\"}[5m])",
+            "legendFormat": "Errors"
+          }
+        ],
+        "type": "graph"
+      },
+      {
+        "title": "CPU Usage by Service",
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 8},
+        "targets": [
+          {
+            "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=~\"api-service|auth-service|image-service\"}[5m])) by (namespace)",
+            "legendFormat": "{{namespace}}"
+          }
+        ],
+        "type": "graph"
+      },
+      {
+        "title": "Memory Usage by Service",
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 16},
+        "targets": [
+          {
+            "expr": "sum(container_memory_usage_bytes{namespace=~\"api-service|auth-service|image-service\"}) by (namespace)",
+            "legendFormat": "{{namespace}}"
+          }
+        ],
+        "type": "graph"
+      },
+      {
+        "title": "Pod Count by Service",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 24},
+        "targets": [
+          {
+            "expr": "count(kube_pod_info{namespace=~\"api-service|auth-service|image-service\"}) by (namespace)",
+            "legendFormat": "{{namespace}}"
+          }
+        ],
+        "type": "stat"
+      },
+      {
+        "title": "Response Time (p95)",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 24},
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{namespace=\"api-service\"}[5m]))",
+            "legendFormat": "API Service"
+          }
+        ],
+        "type": "graph"
+      }
+    ]
+  }
+}
