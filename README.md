@@ -118,7 +118,7 @@ stern            # Multi-pod log tailing
 
 ```bash
 # Clone repository
-git clone <repository-url>
+git clone https://github.com/ibn3bbas-sd/Project-06-Deploy-3-Microservices-App-using-Kubernetes.git
 cd kubernetes-microservices
 
 # Run automated setup
