@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-REGISTRY="your-registry.io"  # Replace with your registry #NeedsUpdate
+REGISTRY="docker.io/ibn3bbas"  # Replace with your registry 
 VERSION="1.0.0"
 
 # Build images
