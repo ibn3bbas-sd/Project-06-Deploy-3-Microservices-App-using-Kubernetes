@@ -47,7 +47,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
       - name: image-service
-        image: your-registry.io/image-service:1.0.0
+        image: docker.io/ibn3bbas/image-service:1.0.0
         imagePullPolicy: Always
         ports:
         - name: http

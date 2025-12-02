@@ -47,7 +47,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
       - name: auth-service
-        image: your-registry.io/auth-service:1.0.0
+        image: docker.io/ibn3bbas/auth-service:1.0.0
         imagePullPolicy: Always
         ports:
         - name: http

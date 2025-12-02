@@ -1,7 +1,0 @@
-kubectl create secret docker-registry registry-credentials \
-  --docker-server=docker.io/ibn3bbas \
-  --docker-username=ibn3bbas \
-  --docker-password=n@noTK321989 \
-  --docker-email=ibn3bbas.mo7ammed.elhadi@gmail.com \
-  --namespace=api-service \
-  --dry-run=client -o yaml
