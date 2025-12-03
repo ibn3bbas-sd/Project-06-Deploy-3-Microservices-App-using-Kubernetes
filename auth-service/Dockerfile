@@ -17,12 +17,15 @@ FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates
 
-WORKDIR /root/
+RUN addgroup -g 1001 -S appgroup && \
+    adduser -S appuser -u 1001 -G appgroup
+
+WORKDIR /app
 
 COPY --from=builder /app/main .
 
-RUN addgroup -g 1001 -S appgroup && \
-    adduser -S appuser -u 1001 -G appgroup
+# Fix permissions
+RUN chown appuser:appgroup main && chmod +x main
 
 USER appuser
 

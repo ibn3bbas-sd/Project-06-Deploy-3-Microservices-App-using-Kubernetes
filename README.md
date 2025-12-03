@@ -121,6 +121,8 @@ stern            # Multi-pod log tailing
 git clone https://github.com/ibn3bbas-sd/Project-06-Deploy-3-Microservices-App-using-Kubernetes.git
 cd kubernetes-microservices
 
+# Run automated setup
+./scripts/00_setup_local.sh
 ```
 
 This script will:
@@ -198,7 +200,7 @@ docker run -d -p 5000:5000 --name registry registry:2
 export REGISTRY=localhost:5000
 
 # Build and push
-./scripts/build-and-push.sh
+./scripts/02_build_and_push.sh
 ```
 
 **For Docker Hub:**
@@ -210,7 +212,7 @@ docker login
 export REGISTRY=your-dockerhub-username
 
 # Build and push
-./scripts/build-and-push.sh
+./scripts/02_build_and_push.sh
 ```
 
 **For private registry:**
@@ -450,12 +452,12 @@ Alerts are configured to fire on:
 
 ```bash
 # Run all scenarios
-./scripts/test-failures.sh
+./scripts/08_test_failures.sh
 
 # Run specific scenario
-./scripts/test-failures.sh pod-crash
-./scripts/test-failures.sh traffic-spike
-./scripts/test-failures.sh db-failure
+./scripts/08_test_failures.sh pod-crash
+./scripts/08_test_failures.sh traffic-spike
+./scripts/08_test_failures.sh db-failure
 
 # View results
 cat failure-test-results.log

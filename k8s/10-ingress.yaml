@@ -6,7 +6,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: your-email@example.com
+    email: ibn.abbas@rasid.com.sa
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
@@ -33,9 +33,9 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: api.yourdomain.com
+  commonName: api.local.dev
   dnsNames:
-  - api.yourdomain.com
+  - api.local.dev
 ---
 # Ingress
 apiVersion: networking.k8s.io/v1
@@ -53,10 +53,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - api.yourdomain.com
+    - api.local.dev
     secretName: api-tls-secret
   rules:
-  - host: api.yourdomain.com
+  - host: api.local.dev
     http:
       paths:
       - path: /
