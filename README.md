@@ -452,12 +452,12 @@ Alerts are configured to fire on:
 
 ```bash
 # Run all scenarios
-./scripts/08_test_failures.sh
+./scripts/07_test_failures.sh
 
 # Run specific scenario
-./scripts/08_test_failures.sh pod-crash
-./scripts/08_test_failures.sh traffic-spike
-./scripts/08_test_failures.sh db-failure
+./scripts/07_test_failures.sh pod-crash
+./scripts/07_test_failures.sh traffic-spike
+./scripts/07_test_failures.sh db-failure
 
 # View results
 cat failure-test-results.log
